@@ -2,9 +2,8 @@
 // Projeto: Gerenciador de Tarefas
 // Autor: Leonardo Rodrigues
 // RU: 4745830
-// Descrição: Aplicação Spring Boot para gerenciar tarefas com operações CRUD e de acordo com o padrão REST.
+// Descrição: Modelo de dados para a entidade Tarefa.
 // --------------------------------------------------------------
-
 package br.com.uninter.gerenciador_tarefas.model;
 
 import java.time.LocalDate;
@@ -18,15 +17,19 @@ import jakarta.persistence.Id;
 public class Tarefa {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // Geração automática do ID
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String nome;
-    private String ru;
-    private LocalDate dataEntrega;
+    private String descricao; 
     private String responsavel;
+    private LocalDate dataEntrega;
+    
+    // Construtor padrão (necessário para JPA)
+    public Tarefa() {
+    }
 
-    // Getters e Setters para as propriedades
+    // Getters e Setters
     public Long getId() {
         return id;
     }
@@ -43,20 +46,12 @@ public class Tarefa {
         this.nome = nome;
     }
 
-    public String getRu() {
-        return ru;
+    public String getDescricao() {
+        return descricao;
     }
 
-    public void setRu(String ru) {
-        this.ru = ru;
-    }
-
-    public LocalDate getDataEntrega() {
-        return dataEntrega;
-    }
-
-    public void setDataEntrega(LocalDate dataEntrega) {
-        this.dataEntrega = dataEntrega;
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
 
     public String getResponsavel() {
@@ -65,5 +60,13 @@ public class Tarefa {
 
     public void setResponsavel(String responsavel) {
         this.responsavel = responsavel;
+    }
+
+    public LocalDate getDataEntrega() {
+        return dataEntrega;
+    }
+
+    public void setDataEntrega(LocalDate dataEntrega) {
+        this.dataEntrega = dataEntrega;
     }
 }

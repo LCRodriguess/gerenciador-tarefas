@@ -57,7 +57,7 @@ public class TarefaController {
         return tarefaRepository.findById(id)
                 .map(tarefa -> { // Atualiza os campos da tarefa existente com os novos dados de cada propriedade
                     tarefa.setNome(tarefaDetalhes.getNome());
-                    tarefa.setRu(tarefaDetalhes.getRu());
+                    tarefa.setDescricao(tarefaDetalhes.getDescricao());
                     tarefa.setDataEntrega(tarefaDetalhes.getDataEntrega());
                     tarefa.setResponsavel(tarefaDetalhes.getResponsavel());
                     Tarefa tarefaAtualizada = tarefaRepository.save(tarefa);
