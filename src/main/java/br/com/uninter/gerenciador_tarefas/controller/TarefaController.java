@@ -32,10 +32,17 @@ public class TarefaController {
     @Autowired
     private TarefaRepository tarefaRepository;
 
+
     @PostMapping 
     @ResponseStatus(HttpStatus.CREATED) // Define o status HTTP 201 Created para respostas bem-sucedidas
     public Tarefa criar(@RequestBody Tarefa tarefa) { //
         return tarefaRepository.save(tarefa); // Salva a nova tarefa no banco de dados e retorna a tarefa salva
+    }
+
+    @PostMapping("/lote") // Endpoint para criar múltiplas tarefas
+    @ResponseStatus(HttpStatus.CREATED)
+    public List<Tarefa> criarEmLote(@RequestBody List<Tarefa> tarefas) {
+        return tarefaRepository.saveAll(tarefas); // Salva todas as tarefas recebidas e retorna a lista de tarefas salvas
     }
 
     @GetMapping
@@ -50,6 +57,7 @@ public class TarefaController {
                 .map(ResponseEntity::ok) // Se a tarefa for encontrada, retorna 200 OK com a tarefa no corpo da resposta
                 .orElse(ResponseEntity.notFound().build()); // Se não for encontrada, retorna 404 Not Found
     }
+
 
     // PUT METHOD - Atualizar os dados de uma tarefa existente - EX: localhost:8080/api/tarefas/1
     @PutMapping("/{id}")
