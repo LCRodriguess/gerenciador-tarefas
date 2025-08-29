@@ -22,7 +22,7 @@ Uma API RESTful simples para gerenciamento de tarefas, desenvolvida como parte d
 
 1.  **Clone o repositório:**
     ```bash
-    git clone [https://github.com/seu-usuario/gerenciador_tarefas.git](https://github.com/seu-usuario/gerenciador_tarefas.git)
+    git clone https://github.com/LCRodriguess/gerenciador_tarefas.git
     ```
 
 2.  **Navegue até a pasta do projeto:**
