@@ -41,6 +41,7 @@ Uma API RESTful simples para gerenciamento de tarefas, desenvolvida como parte d
 
 A URL base para todos os endpoints é `/api/tarefas`.
 
+
 | Método | URI                | Descrição                  |
 | :----- | :----------------- | :------------------------- |
 | `POST` | `/api/tarefas`                | Cria uma nova tarefa.       |
@@ -50,14 +51,34 @@ A URL base para todos os endpoints é `/api/tarefas`.
 | `PUT`  | `/api/tarefas/{id}`           | Atualiza uma tarefa por ID. |
 | `DELETE`| `/api/tarefas/{id}`          | Deleta uma tarefa por ID.   |
 
-## 🧪 Como Testar
 
-Para testar os endpoints, você pode utilizar uma ferramenta como o **Postman** ou o **Insomnia**.
+### 🧪 Como Testar
+Para testar os endpoints, você pode utilizar uma ferramenta como o Postman ou o Insomnia.
 
-- **Para criar ou atualizar uma tarefa**, envie uma requisição `POST` ou `PUT` para a URI correspondente com um corpo (body) no formato JSON, como no exemplo abaixo:
+> #### Exemplo 1: Criando uma única tarefa
+>
+>> - Método: POST
+>
+>> - URL: http://localhost:8080/api/tarefas
+
+`Corpo (Body) / JSON:`
+```json
 
 
-| `POST` | `http://localhost:8080/api/tarefas/lote`
+{
+    "nome": "Minha Primeira Tarefa",
+    "descricao": "Descrição detalhada da tarefa.",
+    "dataEntrega": "2025-12-12",
+    "responsavel": "admin"
+}
+```
+
+> #### Exemplo 2: Criando várias tarefas em lote
+>
+>> - Método: POST
+>> - URL: http://localhost:8080/api/tarefas/lote
+
+`Corpo (Body) / JSON:`
 ```json
 [
   {
@@ -67,9 +88,8 @@ Para testar os endpoints, você pode utilizar uma ferramenta como o **Postman** 
     "responsavel": "admin"
   },
   {
-    
     "nome": "tarefa 2",
-   "descricao": "A tarefa 2",
+    "descricao": "A tarefa 2",
     "dataEntrega": "2025-10-31",
     "responsavel": "admin"
   },
@@ -80,13 +100,3 @@ Para testar os endpoints, você pode utilizar uma ferramenta como o **Postman** 
     "responsavel": "admin"
   }
 ]
-
-
-| `POST` | `http://localhost:8080/api/tarefas/lote`
-```json
-{
-    "nome": "tarefa 1",
-    "descricao": "A tarefa 1",
-    "dataEntrega": "2025-12-12",
-    "responsavel": "admin"
-},
