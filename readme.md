@@ -37,7 +37,7 @@ Uma API RESTful simples para gerenciamento de tarefas, desenvolvida como parte d
 
 4.  A API estará disponível em `http://localhost:8080`.
 
-## Endpoints da API
+## 🎯 Endpoints da API
 
 A URL base para todos os endpoints é `/api/tarefas`.
 
