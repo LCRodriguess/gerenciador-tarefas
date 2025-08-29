@@ -43,11 +43,12 @@ A URL base para todos os endpoints é `/api/tarefas`.
 
 | Método | URI                | Descrição                  |
 | :----- | :----------------- | :------------------------- |
-| `POST` | `/`                | Cria uma nova tarefa.      |
-| `GET`  | `/`                | Lista todas as tarefas.    |
-| `GET`  | `/{id}`            | Busca uma tarefa por ID.   |
-| `PUT`  | `/{id}`            | Atualiza uma tarefa por ID.|
-| `DELETE`| `/{id}`            | Deleta uma tarefa por ID.  |
+| `POST` | `/api/tarefas`                | Cria uma nova tarefa.       |
+| `POST` | `/api/tarefas/lote`           | Cria uma lista de tarefas.  |
+| `GET`  | `/api/tarefas`                | Lista todas as tarefas.     |
+| `GET`  | `/api/tarefas/{id}`           | Busca uma tarefa por ID.    |
+| `PUT`  | `/api/tarefas/{id}`           | Atualiza uma tarefa por ID. |
+| `DELETE`| `/api/tarefas/{id}`          | Deleta uma tarefa por ID.   |
 
 ## 🧪 Como Testar
 
@@ -55,10 +56,37 @@ Para testar os endpoints, você pode utilizar uma ferramenta como o **Postman** 
 
 - **Para criar ou atualizar uma tarefa**, envie uma requisição `POST` ou `PUT` para a URI correspondente com um corpo (body) no formato JSON, como no exemplo abaixo:
 
+
+| `POST` | `http://localhost:8080/api/tarefas/lote`
+```json
+[
+  {
+    "nome": "tarefa 1",
+    "descricao": "A tarefa 1",
+    "dataEntrega": "2025-12-12",
+    "responsavel": "admin"
+  },
+  {
+    
+    "nome": "tarefa 2",
+   "descricao": "A tarefa 2",
+    "dataEntrega": "2025-10-31",
+    "responsavel": "admin"
+  },
+  {
+    "nome": "tarefa 3",
+    "descricao": "A tarefa 3",
+    "dataEntrega": "2025-08-29",
+    "responsavel": "admin"
+  }
+]
+
+
+| `POST` | `http://localhost:8080/api/tarefas/lote`
 ```json
 {
-    "nome": "Minha Tarefa de Teste",
-    "ru": "1234567",
-    "dataEntrega": "2025-12-31",
-    "responsavel": "Meu Nome"
-}
+    "nome": "tarefa 1",
+    "descricao": "A tarefa 1",
+    "dataEntrega": "2025-12-12",
+    "responsavel": "admin"
+},
